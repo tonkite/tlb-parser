@@ -15,13 +15,19 @@ jobs:
         node-version: ['16.x', '18.x', '20.x', '22.x']
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: npm install and build
+      - name: Install dependencies and build
         run: pnpm install --frozen-lockfile && pnpm build
 
-      - name: test
+      - name: Run tests
         run: pnpm test
