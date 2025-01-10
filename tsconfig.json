@@ -35,5 +35,5 @@
 
     "skipLibCheck": true
   },
-  "exclude": ["dist/*/**"],
+  "exclude": ["dist/*/**"]
 }

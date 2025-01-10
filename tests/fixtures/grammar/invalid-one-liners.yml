@@ -11,7 +11,6 @@
   error: |
     Line 1, col 12: expected "="
 
-
 # Builtins
 # ========
 
@@ -28,7 +27,6 @@
     tempb$01 len:(#@ 9) external_address:(bits len) = TempB;
   errorStart: |
     Line 2, col 16: expected "
-
 
 # Math
 # ====
@@ -49,7 +47,6 @@
   code: transaction$0111 ^[ in_msg:bits256 ] + 1 = Transaction;
   errorStart: |
     Line 1, col 38: expected "=",
-
 
 # Compares
 # ========
@@ -72,7 +69,6 @@
       { total <= main >= 1 } = ValidatorSet;
   errorStart: |
     Line 7, col 17: expected "}",
-
 
 # Parens
 # ======

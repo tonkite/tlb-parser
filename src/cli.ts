@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import util from 'util';
-import {ast, NodeVisitor, ASTRootBase} from './index';
+import { ast, NodeVisitor, ASTRootBase } from './index';
 
 if (process.argv[2] === '--help' || process.argv[2] === '-h' || process.argv[2] === 'help') {
   help();
@@ -21,10 +21,7 @@ if (!fs.existsSync(inputPath)) {
   process.exit(1);
 }
 
-const input = fs.readFileSync(
-  inputPath,
-  'utf-8',
-);
+const input = fs.readFileSync(inputPath, 'utf-8');
 
 class TestVisitor extends NodeVisitor {
   public visited: { [key: string]: number };
@@ -48,19 +45,9 @@ const tree = ast(input);
 const visitor = new TestVisitor();
 visitor.visit(tree);
 
-console.log(
-  util.inspect(
-    visitor.visited,
-    {showHidden: false, depth: null, colors: true},
-  ),
-);
+console.log(util.inspect(visitor.visited, { showHidden: false, depth: null, colors: true }));
 
-console.log(
-  util.inspect(
-    tree,
-    {showHidden: false, depth: null, colors: true},
-  ),
-);
+console.log(util.inspect(tree, { showHidden: false, depth: null, colors: true }));
 
 function help() {
   console.log('Usage: tlb-parser <input>');

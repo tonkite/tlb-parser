@@ -1,24 +1,21 @@
-import type { Grammar, MatchResult } from 'ohm-js'
+import type { Grammar, MatchResult } from 'ohm-js';
 
-import type { Program } from './ast/nodes'
-import { buildGrammar, buildAST } from './intermediate'
+import type { Program } from './ast/nodes';
+import { buildGrammar, buildAST } from './intermediate';
 
-export function parse (
-  input: string,
-  grammar: Grammar | undefined = undefined,
-): MatchResult {
+export function parse(input: string, grammar: Grammar | undefined = undefined): MatchResult {
   if (grammar === undefined) {
-    grammar = buildGrammar()
+    grammar = buildGrammar();
   }
 
-  return grammar.match(input)
+  return grammar.match(input);
 }
 
-export function ast (input: string): Program {
-  return buildAST(input, buildGrammar())
+export function ast(input: string): Program {
+  return buildAST(input, buildGrammar());
 }
 
-export {NodeVisitor} from './ast/visit';
+export { NodeVisitor } from './ast/visit';
 
 export {
   ASTRootBase,
@@ -55,4 +52,4 @@ export {
   BuiltinOneArgOperators,
   BuiltinZeroArgsOperators,
   MathOperator,
-} from './ast/nodes'
+} from './ast/nodes';
